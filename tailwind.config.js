@@ -12,8 +12,8 @@ module.exports = {
         serif: ['Libre Caslon Text', 'serif'],
       },
       colors: {
-        primary: '#b98632',
-        secondary: '#161b26',
+        primary: 'var(--primary-color)',
+        secondary: 'var(--secondary-color)',
       },
     },
   },

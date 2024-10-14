@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #b98632;
+  --secondary-color: #161b26;
+}
+
+ul.list-custom li::before {
+  content: '';
+  display: inline-block;
+  width: 0.5em; /* Adjust size as needed */
+  height: 0.5em; /* Adjust size as needed */
+  border-radius: 50%; /* Make it circular */
+  background-color: var(--primary-color); /* Set the color as needed */
+  margin-right: 0.5em; /* Space between bullet and text */
+  vertical-align: middle; /* Align with text */
+}
+
 @layer utilities {
   .star {
     clip-path: polygon(
