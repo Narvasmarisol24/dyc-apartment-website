@@ -17,4 +17,20 @@
       39% 35%
     );
   }
+
+  @keyframes wheel-up-down {
+    0% {
+      margin-top: 2px;
+      opacity: 0;
+    }
+
+    30% {
+      opacity: 1;
+    }
+
+    100% {
+      margin-top: 20px;
+      opacity: 0;
+    }
+  }
 }

@@ -25,7 +25,10 @@
     <!-- Hero Section -->
     <section
       class="relative bg-gray-900"
-      x-data="{ isScrolled: false }"
+      x-data="{
+        isScrolled: false,
+        scrollTo(target) { document.getElementById(target).scrollIntoView({ behavior: 'smooth' }); }
+      }"
       x-init="
         window.addEventListener('scroll', () => {
             isScrolled = window.scrollY > 10;

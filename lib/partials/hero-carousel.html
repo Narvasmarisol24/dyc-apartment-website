@@ -1,4 +1,4 @@
-<!-- Carousel Section -->
+<!-- Carousel section -->
 <div
   class="relative w-full h-screen overflow-hidden"
   x-data="{ currentIndex: 0, images: ['/images/home-carousel-1.jpg', '/images/home-carousel-2.jpg', '/images/home-carousel-3.jpg'] }"
@@ -10,16 +10,16 @@
   <template x-for="(image, index) in images" :key="index">
     <img
       :src="image"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="absolute inset-0 w-full h-full object-cover z-10"
       :class="{ 'opacity-100': currentIndex === index, 'opacity-0': currentIndex !== index }"
       style="transition: opacity 1s" />
   </template>
 
   <!-- Carousel controls -->
-  <div class="absolute inset-0 flex justify-between items-center px-4 z-20">
+  <div>
     <button
       @click="currentIndex = (currentIndex - 1 + images.length) % images.length"
-      class="inline-flex h-12 w-12 items-center justify-center bg-transparent border-[0.5px] border-gray-50 text-gray-50 mx-4 md:mx-12 rounded-full shadow-lg hover:bg-primary hover:border-0 transition delay-75 ease-in-out hover:translate-y-1 hover:scale-90">
+      class="absolute px-4 my-auto left-0 inset-y-0 z-30 inline-flex h-12 w-12 items-center justify-center bg-transparent border-[0.5px] border-gray-50 text-gray-50 mx-4 md:mx-12 rounded-full shadow-lg hover:bg-primary hover:border-0 transition delay-75 ease-in-out hover:translate-y-1 hover:scale-90">
       <svg
         class="h-5 w-5"
         fill="none"
@@ -35,7 +35,7 @@
     </button>
     <button
       @click="currentIndex = (currentIndex + 1) % images.length"
-      class="inline-flex h-12 w-12 items-center justify-center bg-transparent border-[0.5px] border-gray-50 text-gray-50 mx-4 md:mx-12 rounded-full shadow-lg hover:bg-primary hover:border-0 transition delay-75 ease-in-out hover:translate-y-1 hover:scale-90">
+      class="absolute px-4 my-auto right-0 inset-y-0 z-30 inline-flex h-12 w-12 items-center justify-center bg-transparent border-[0.5px] border-gray-50 text-gray-50 mx-4 md:mx-12 rounded-full shadow-lg hover:bg-primary hover:border-0 transition delay-75 ease-in-out hover:translate-y-1 hover:scale-90">
       <svg
         class="h-5 w-5"
         fill="none"
@@ -51,9 +51,9 @@
     </button>
   </div>
 
-  <!-- Hero Text Overlay -->
+  <!-- Hero text overlay -->
   <div
-    class="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
+    class="absolute inset-0 flex flex-col justify-center items-center text-center z-20">
     <div class="flex items-center space-x-1">
       <div class="star bg-primary w-4 h-4"></div>
       <div class="star bg-primary w-4 h-4"></div>
@@ -74,6 +74,18 @@
     </a>
   </div>
 
-  <!-- Overlay Background -->
-  <div class="absolute inset-0 bg-black opacity-50"></div>
+  <!-- Mouse scroll to next section -->
+  <a
+    href="#"
+    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 block"
+    @click="scrollTo('rooms-section')">
+    <span
+      class="block w-[26px] h-[50px] border border-white rounded-[15px] cursor-pointer relative text-center transition-all duration-300 ease-in-out">
+      <span
+        class="block h-[6px] my-2 mx-auto w-[6px] bg-white rounded-full animate-[wheel-up-down_1.6s_ease_infinite]"></span>
+    </span>
+  </a>
+
+  <!-- Overlay background -->
+  <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
 </div>
