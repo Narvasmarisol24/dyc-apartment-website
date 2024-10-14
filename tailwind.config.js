@@ -3,6 +3,8 @@ module.exports = {
   content: [
     './index.html',
     './about/**/*.{js,html}',
+    './units/**/*.{js,html}',
+    './contact/**/*.{js,html}',
     './lib/partials/**/*.{js,html}',
   ],
   theme: {
