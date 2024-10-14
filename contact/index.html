@@ -1,8 +1,142 @@
 {{#> layout title="Contact Us"}} {{> hero
 imageUrl="/images/single-rooms-building.jpg"}}
 <main>
+  <!-- Contact information -->
   <section
     id="first-section"
-    class="min-h-[400px] w-full h-full bg-gray-100 border-dashed border-2 border-black"></section>
+    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-12 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-24">
+      <div class="mb-8 pr-8">
+        <div
+          class="border-b border-primary pb-2 uppercase font-light text-sm text-gray-50">
+          LOCATION
+        </div>
+      </div>
+
+      <div class="md:col-span-3">
+        <div class="text-4xl text-gray-50 font-serif font-light">
+          Contact Us
+        </div>
+
+        <p class="mt-4 text-gray-400 font-light">
+          If you have any questions about our apartments, availability, or
+          pricing, feel free to contact our caretaker directly. They’re happy to
+          assist you with any inquiries you may have.
+        </p>
+
+        <div
+          class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6"
+          x-data="{
+              contactInformation: {
+                phone: {
+                  title: 'Reservation',
+                  value: '+63 928 352 7388'
+                },
+
+                email: {
+                  title: 'Email',
+                  value: 'dycapartment@gmail.com'
+                },
+
+                address: {
+                  title: 'Address',
+                  value: '0136 Vicente Ramos St, San Pedro, Bustos, Bulacan'
+                }
+              }
+            }">
+          <template x-for="(contact, contactKey) in contactInformation">
+            <div
+              class="md:col-span-1 flex items-center bg-secondary bg-opacity-70 px-3 py-3.5">
+              <span class="text-primary">
+                <svg
+                  x-show="contactKey === 'phone'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1"
+                  stroke="currentColor"
+                  class="size-10">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+                </svg>
+
+                <svg
+                  x-show="contactKey === 'email'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1"
+                  stroke="currentColor"
+                  class="size-10">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>
+
+                <svg
+                  x-show="contactKey === 'address'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1"
+                  stroke="currentColor"
+                  class="size-10">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+                </svg>
+              </span>
+
+              <div class="ml-2.5">
+                <h4
+                  x-text="contact.title"
+                  class="text-gray-50 text-lg font-serif font-light"></h4>
+                <p
+                  x-text="contact.value"
+                  class="mt-0.5 text-gray-400 text-sm"></p>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div class="mt-12">
+          <div class="text-2xl text-gray-50 font-serif font-light">
+            Get in touch
+          </div>
+
+          <form action="#" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="col-span-2 md:col-span-1">
+              {{> input placeholder="Your Name *"}}
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              {{> input placeholder="Your Number *"}}
+            </div>
+
+            <div class="col-span-2">
+              <textarea
+                placeholder="Your Message *"
+                rows="4"
+                class="w-full rounded-none border-0 border-b border-gray-500 focus:border-primary bg-transparent px-0 py-2 text-gray-50 placeholder-gray-500 focus:outline-none focus:ring-0 transition-[border-color] duration-50"></textarea>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <button
+                class="px-5 py-3.5 bg-primary text-white text-sm font-light hover:bg-white hover:text-gray-800 hover:border-transparent transition-colors duration-200">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/. Contact information -->
+
+  <!-- Map -->
 </main>
 {{/layout}}
