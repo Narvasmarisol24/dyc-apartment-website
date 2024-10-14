@@ -1,0 +1,79 @@
+<!-- Carousel Section -->
+<div
+  class="relative w-full h-screen overflow-hidden"
+  x-data="{ currentIndex: 0, images: ['/images/home-carousel-1.jpg', '/images/home-carousel-2.jpg', '/images/home-carousel-3.jpg'] }"
+  x-init="
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+    }, 5000);
+  ">
+  <template x-for="(image, index) in images" :key="index">
+    <img
+      :src="image"
+      class="absolute inset-0 w-full h-full object-cover"
+      :class="{ 'opacity-100': currentIndex === index, 'opacity-0': currentIndex !== index }"
+      style="transition: opacity 1s" />
+  </template>
+
+  <!-- Carousel controls -->
+  <div class="absolute inset-0 flex justify-between items-center px-4 z-20">
+    <button
+      @click="currentIndex = (currentIndex - 1 + images.length) % images.length"
+      class="inline-flex h-12 w-12 items-center justify-center bg-transparent border-[0.5px] border-gray-50 text-gray-50 mx-4 md:mx-12 rounded-full shadow-lg hover:bg-primary hover:border-0 transition delay-75 ease-in-out hover:translate-y-1 hover:scale-90">
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1"
+          d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button
+      @click="currentIndex = (currentIndex + 1) % images.length"
+      class="inline-flex h-12 w-12 items-center justify-center bg-transparent border-[0.5px] border-gray-50 text-gray-50 mx-4 md:mx-12 rounded-full shadow-lg hover:bg-primary hover:border-0 transition delay-75 ease-in-out hover:translate-y-1 hover:scale-90">
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1"
+          d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Hero Text Overlay -->
+  <div
+    class="absolute inset-0 flex flex-col justify-center items-center text-center z-10">
+    <div class="flex items-center space-x-1">
+      <div class="star bg-primary w-4 h-4"></div>
+      <div class="star bg-primary w-4 h-4"></div>
+      <div class="star bg-primary w-4 h-4"></div>
+      <div class="star bg-primary w-4 h-4"></div>
+      <div class="star bg-primary w-4 h-4"></div>
+    </div>
+
+    <p class="text-white text-sm md:text-base mt-4">WELCOME TO</p>
+    <h1 class="text-white text-3xl md:text-5xl font-serif mt-4 italic">
+      Your New Home
+    </h1>
+
+    <a
+      href="#apartments"
+      class="mt-6 bg-transparent text-white text-sm font-light border border-white px-4 py-3 hover:bg-white hover:text-gray-800 hover:border-transparent transition-colors duration-200">
+      VIEW UNITS
+    </a>
+  </div>
+
+  <!-- Overlay Background -->
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+</div>

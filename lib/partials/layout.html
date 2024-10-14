@@ -1,11 +1,38 @@
+<!doctype html>
 <html>
   <head>
     <title>DYC Apartment {{#if title}} | {{title}} {{/if}}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script defer type="module" src="/main.js"></script>
+
+    <style>
+      /* Google fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+      /* Transition for the header when it shrinks */
+      .header-transition {
+        transition: height 0.2s ease;
+      }
+    </style>
+
     <link href="/style.css" rel="stylesheet" />
   </head>
 
-  <body>
-    {{> @partial-block }}
+  <body class="antialiased">
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gray-900"
+      x-data="{ isScrolled: false }"
+      x-init="
+        window.addEventListener('scroll', () => {
+            isScrolled = window.scrollY > 10;
+        });
+    ">
+      {{> header}}
+      <div>{{> @partial-block }}</div>
+    </section>
   </body>
 </html>
