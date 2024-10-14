@@ -7,7 +7,7 @@
       <div class="flex justify-between items-center w-full">
         <div class="flex-shrink-0">
           <a
-            href="#"
+            href="/"
             :class="{ 'text-primary': isScrolled, 'text-gray-50': !isScrolled }"
             class="font-serif text-center">
             <p class="font-bold text-2xl leading-none">DYC</p>
@@ -16,23 +16,27 @@
         </div>
         <div class="hidden md:ml-6 md:flex md:space-x-8">
           <a
-            href="#"
-            class="text-primary text-sm font-light hover:transition-all">
+            href="/"
+            :class="{'text-primary': isActivePath(''), 'text-gray-50': !isActivePath('')}"
+            class="text-sm font-light hover:transition-all">
             Home
           </a>
           <a
-            href="#"
-            class="text-gray-50 text-sm font-light hover:text-primary hover:transition-all">
+            href="/about/"
+            :class="{'text-primary': isActivePath('/about'), 'text-gray-50': !isActivePath('/about')}"
+            class="text-sm font-light hover:text-primary hover:transition-all">
             About
           </a>
           <a
-            href="#"
-            class="text-gray-50 text-sm font-light hover:text-primary hover:transition-all">
+            href="/units/"
+            :class="{'text-primary': isActivePath('/units'), 'text-gray-50': !isActivePath('/units')}"
+            class="text-sm font-light hover:text-primary hover:transition-all">
             Units
           </a>
           <a
-            href="#"
-            class="text-gray-50 text-sm font-light hover:text-primary hover:transition-all">
+            href="/contact/"
+            :class="{'text-primary': isActivePath('/contact'), 'text-gray-50': !isActivePath('/contact')}"
+            class="text-sm font-light hover:text-primary hover:transition-all">
             Contact
           </a>
         </div>

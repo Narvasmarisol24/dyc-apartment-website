@@ -1,0 +1,28 @@
+<!-- Carousel section -->
+<div class="relative w-full h-screen overflow-hidden">
+  <img
+    src="{{imageUrl}}"
+    class="absolute inset-0 w-full h-full object-cover z-10"
+    style="transition: opacity 1s" />
+
+  <!-- Hero text overlay -->
+  <div
+    class="absolute inset-0 flex flex-col justify-center items-center text-center z-20">
+    <h1 class="text-white text-3xl md:text-5xl font-serif italic">{{title}}</h1>
+  </div>
+
+  <!-- Mouse scroll to next section -->
+  <a
+    href="#"
+    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 block"
+    @click="scrollTo('first-section')">
+    <span
+      class="block w-[26px] h-[50px] border border-white rounded-[15px] cursor-pointer relative text-center transition-all duration-300 ease-in-out">
+      <span
+        class="block h-[6px] my-2 mx-auto w-[6px] bg-white rounded-full animate-[wheel-up-down_1.6s_ease_infinite]"></span>
+    </span>
+  </a>
+
+  <!-- Overlay background -->
+  <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
+</div>

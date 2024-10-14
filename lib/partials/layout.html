@@ -22,12 +22,15 @@
   </head>
 
   <body class="antialiased">
-    <!-- Hero Section -->
-    <section
+    <!-- Hero  -->
+    <div
       class="relative bg-gray-900"
       x-data="{
         isScrolled: false,
-        scrollTo(target) { document.getElementById(target).scrollIntoView({ behavior: 'smooth' }); }
+        scrollTo(target) { document.getElementById(target).scrollIntoView({ behavior: 'smooth' }); },
+        isActivePath(path) {
+          return window.location.pathname.replace(/\/+$/, '') === path;
+        }
       }"
       x-init="
         window.addEventListener('scroll', () => {
@@ -36,7 +39,7 @@
     ">
       {{> header}}
       <div>{{> @partial-block }}</div>
-    </section>
+    </div>
 
     {{> footer}}
   </body>
